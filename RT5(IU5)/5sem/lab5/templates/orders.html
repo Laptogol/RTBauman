@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{# Подставится вместо блока title в базовом шаблоне #}
+{% block title %}Заказы{% endblock %}
+
+{% block body %}
+    <ul >
+        {% for order in orders %}
+           {% include 'order_element.html' with element=order %}
+        {% empty %}
+           <li>пустой список</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
