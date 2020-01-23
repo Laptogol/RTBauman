@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.js"></script>
+    <script src='index.js'></script>
+    <title>График</title>
+</head>
+<body>
+<div class="body1" style="height:500px ;width:500px;">
+    <form>
+        <p>От кого числа: <input name="from" class="from"></p>
+        <p>До какого числа: <input name="to" class="to"></p>
+        <p>Функция: <input name="fun" class="fun"></p>
+        <p><button class="plot" type="button">Построить график</button></p>
+        <p><button class="stop" type="button">Остановить</button></p>
+    </form>
+    <div class="graph"
+         style="height:500px ;
+         width:500px;
+         margin-top: 50px;  "></div>
+</div>
+</body>
