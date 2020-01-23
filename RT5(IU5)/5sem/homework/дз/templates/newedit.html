@@ -1,0 +1,35 @@
+{%  extends 'base.html' %}
+{% block head_buttons %}
+      <div class="row">
+        {% if request.user.is_authenticated %}
+            <a href={% url 'logout_url' %}>выйти</a>
+        {% else %}
+            <a href={% url 'login_url' %}>войти</a>
+               <ul></ul>
+            <a href={% url 'reg_url' %}>регистрация</a>
+        {% endif %}
+      </div>
+{% endblock %}
+{% block scripts %}
+
+{% endblock %}
+
+
+
+
+{% block body1 %}
+   <hr>
+    <form method='post'>
+        {% csrf_token %}
+               <div class="add-form">
+                {% csrf_token %}
+                <div class="coconcert_add" enctype="multipart/form-data">
+                    <label for="id_name">Название концерта:</label>
+                    <div class="data-and-error">
+                        <input type="text" name="name" maxlength="100" required id="id_name"/>
+                    </div>
+                </div>
+                   <button type="submit" id="btn_add">Добавить концерт</button>
+    </form>
+
+{% endblock %}
