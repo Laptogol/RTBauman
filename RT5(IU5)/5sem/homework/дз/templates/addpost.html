@@ -1,0 +1,49 @@
+{%  extends 'base.html' %}
+{% block head_buttons %}
+      <div class="row">
+        {% if request.user.is_authenticated %}
+            <a href={% url 'logout_url' %}>выйти</a>
+        {% else %}
+            <a href={% url 'login_url' %}>войти</a>
+               <ul></ul>
+            <a href={% url 'reg_url' %}>регистрация</a>
+        {% endif %}
+      </div>
+{% endblock %}
+{% block scripts %}
+
+{% endblock %}
+
+
+
+
+{% block body1 %}
+   <hr>
+    <form method='post'>
+        {% csrf_token %}
+               <div class="concert_add">
+                {% csrf_token %}
+                <div class="user_add" enctype="multipart/form-data">
+                    <label for="id_name">Имя зрителя:</label>
+                    <div class="data-and-error">
+                        <input type="text" name="name" maxlength="100" required id="id_name"/>
+                    </div>
+                </div>
+
+
+                <div class="user_add">
+                    <label for="id_subject">Категория:</label>
+                    <div class="data-and-error">
+                        <select name="idconcert">
+                            <option value="" selected>Не выбрано</option>
+                            {% for subject in Concerts %}
+                                <option value="{{ subject.id }}">{{ subject.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <h5 id="error_subject_course">Выберете концерт</h5>
+                    </div>
+                </div>
+                   <button type="submit" id="btn_add">Бронь</button>
+    </form>
+
+{% endblock %}
