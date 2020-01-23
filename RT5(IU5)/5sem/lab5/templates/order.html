@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+
+{# Подставится вместо блока title в базовом шаблоне #}
+{% block title %}Заказ #{{ order.id }}{% endblock %}
+
+{% block body %} <a class="btn btn btn-secondary" href="#" role="button">       Страница заказа №     {{ order.id}} </a> {% endblock %}
