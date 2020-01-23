@@ -1,0 +1,15 @@
+.body1 {
+    vertical-align: top;
+    margin: 0;
+    width: 90%;
+    display: inline-block;
+    text-align: right;
+}
+
+button {
+    float: right;
+    border-color: grey;
+    background-color: lightslategrey;
+    border-radius: 20px;
+    color: white;
+}
