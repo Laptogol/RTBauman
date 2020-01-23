@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<nav class="navbar navbar navbar">
+      <a class="navbar-brand" href="#">Project name</a>
+              <div>Общая часть</div>
+              <div>
+                    {% block body %}Переопределяется в наследниках{% endblock %}
+              </div>
+
+          </ul>
+</nav>
+<h1>привет {{name}}</h1>
+</body>
+</html>
