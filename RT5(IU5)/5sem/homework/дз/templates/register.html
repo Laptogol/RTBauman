@@ -1,0 +1,38 @@
+{%  extends 'base.html' %}
+{% block head_buttons %}
+    <title>Регистрация</title>
+      <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;}
+      .form-signin {
+        max-width: 500px;
+        padding: 15px 15px 29px;
+        margin: 0 auto 20px;
+        background-color: #9556ff;
+        border: 1px solid #e3e5ce;
+        -webkit-border-radius: 20px;
+           -moz-border-radius: 20px;
+                border-radius: 20px;
+         }
+    </style>
+      <div class="row">
+      <a href={% url 'login_url' %}>войти</a>
+          <ul></ul>
+      <a href={% url "reg_url" %}>регистрация</a>
+      </div>
+{% endblock %}
+{% block body1 %}
+    <form class="form-signin" method="post">
+      {% csrf_token %}
+      <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+      {{ form.as_p }}
+      <button
+              class="btn btn-large"
+              type="submit"
+                >
+          Зарегистрироваться
+      </button>
+    </form>
+ {% endblock %}
