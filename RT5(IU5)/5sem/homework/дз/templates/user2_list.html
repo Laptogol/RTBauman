@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block head_buttons %}
+      <div class="row">
+        {% if request.user.is_authenticated %}
+            <a href={% url 'logout_url' %}>выйти</a>
+        {% else %}
+            <a href={% url 'login_url' %}>войти</a>
+               <ul></ul>
+            <a href={% url 'reg_url' %}>регистрация</a>
+        {% endif %}
+      </div>
+{% endblock %}
+{% block body1 %}
+        {% if request.user.is_authenticated %}
+            <hr>
+                    <table>
+                        <caption class="fa-3x"><a href={% url "edit_url" %}>Добавить пользователя  </a></caption>
+                        <tr href="#" data-href-template="#" class="fa-2x">
+                            <th>Номер</th>
+                            <th>Пользователь</th>
+                            <th>Название концерта</th>
+                        </tr>
+
+                        {% for user in obj_list %}
+                            <tr data-href-template={% url "goods_url"%}?id={{ user.id }}>
+                                <td><a href={% url "goods_url"%}?id={{ user }} >  {{ user.id }}  </a>  </td>
+                                <td><h4>{{ user.name }}</h4></td>
+                                <td><h4>{{ user.idconcert.name }}</h4></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+
+        {% else %}
+            <hr>
+                    <div>
+                        <h2>Чтобы просматривать таблицу, нужно авторизоваться</h2>
+                    </div>
+        {% endif %}
+        {% endblock %}
